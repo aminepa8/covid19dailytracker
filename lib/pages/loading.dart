@@ -9,7 +9,7 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   void setupCountryData() async{
-    Country instance = Country(location: 'morocco',flag: 'morocco.png',url:'morocco');
+    Country instance = Country(location: 'Morocco',flag: 'morocco.png',url:'morocco');
     await instance.getData();
     Navigator.pushReplacementNamed(context, '/home',arguments: {
       'location': instance.location,
@@ -31,9 +31,9 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[900],
+      backgroundColor: Colors.grey[900],
       body: Center(
-        child: SpinKitWave(
+        child: SpinKitThreeBounce(
           color: Colors.white,
           size: 60.0,
         ),

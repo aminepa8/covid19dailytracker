@@ -22,7 +22,7 @@ class Country {
 
       List parsedList = jsonDecode(response.body);
       Map data = parsedList[parsedList.length-1]; //get the last data of that country
-      print('Lol  $data');
+      print('Country state ->   $data');
 
       //get properties from data
        countryName = data['Country'];
@@ -30,13 +30,13 @@ class Country {
        deaths = data['Deaths'].toString();
        recovered = data['Recovered'].toString();
       String datetime = data['Date'];
-      // print(datetime);
-      //print(offset);
+
 
       DateTime now = DateTime.parse(datetime);
 
+
       //set and format the time  property
-      time = DateFormat.jm().format(now);
+      time = DateFormat.yMMMMEEEEd().format(now);
     }
     catch(e){
       print('Caught error $e');

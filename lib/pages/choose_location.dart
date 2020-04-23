@@ -7,21 +7,22 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   List<Country> locations = [
-    Country(url: 'morocco', location: 'morocco', flag: 'morocco.png'),
-    Country(url: 'algeria', location: 'algeria', flag: 'uk.png'),
-    Country(url: 'jordan', location: 'jordan', flag: 'greece.png'),
-    Country(url: 'palestine', location: 'palestine', flag: 'egypt.png'),
-    Country(url: 'syria', location: 'syria', flag: 'kenya.png'),
-    Country(url: 'lebanon', location: 'lebanon', flag: 'usa.png'),
-    Country(url: 'mauritania', location: 'mauritania', flag: 'usa.png'),
-    Country(url: 'tunisia', location: 'tunisia', flag: 'south_korea.png'),
-    Country(url: 'libya', location: 'libya', flag: 'indonesia.png'),
+    Country(url: 'morocco', location: 'Morocco', flag: 'morocco.png'),
+    Country(url: 'algeria', location: 'Algeria', flag: 'algeria.png'),
+    Country(url: 'jordan', location: 'Jordan', flag: 'jordan.png'),
+    Country(url: 'palestine', location: 'Palestine', flag: 'palestine.png'),
+    Country(url: 'syria', location: 'Syria', flag: 'syria.png'),
+    Country(url: 'lebanon', location: 'Lebanon', flag: 'lebanon.png'),
+    Country(url: 'mauritania', location: 'Mauritania', flag: 'mauritania.png'),
+    Country(url: 'tunisia', location: 'Tunisia', flag: 'tunisia.png'),
+    Country(url: 'libya', location: 'Libya', flag: 'libya.png'),
   ];
 
-    void updateTime(index) async{
+    void updateData(index) async{
 
       Country instance = locations[index];
       await instance.getData();
+      print('instance updateData - > ${instance.countryName}');
       //Navigate to home Screen
 
       Navigator.pop(context, {
@@ -40,7 +41,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.grey[900],
         title: Text('Choose a Location'),
         centerTitle: true,
         elevation: 0.0,
@@ -54,7 +55,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
               child: Card(
                 child: ListTile(
                   onTap: (){
-                    updateTime(index);
+                    updateData(index);
                   },
                   title: Text(locations[index].location),
                   leading: CircleAvatar(
